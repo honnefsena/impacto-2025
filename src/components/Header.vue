@@ -16,7 +16,7 @@
 .header {
   position: sticky;
   top: 0;
-  width: calc(100vw - 52px);
+  width: 100%;
   background: #111;
   display: flex;
   align-items: center;

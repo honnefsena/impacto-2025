@@ -5,13 +5,16 @@ import Footer from './components/Footer.vue'
 
 <template>
   <Header />
-  <main class="home"></main>
+  <main>
+    <router-view></router-view>
+  </main>
   <Footer />
 </template>
 
 <style scoped>
-.home {
+main {
   min-height: 100vh;
-  background: #fff;
+  background-color: #FFF;
+  color: #000;
 }
 </style>
