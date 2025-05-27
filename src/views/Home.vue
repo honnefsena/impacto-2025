@@ -70,7 +70,7 @@ export default {
 .block {
   width: 167px;
   height: 208px;
-  background: url('./home-block-bkg.png') no-repeat center center;
+  background: url('/home-block-bkg.png') no-repeat center center;
   background-size: contain;
   display: flex;
   flex-direction: column;
