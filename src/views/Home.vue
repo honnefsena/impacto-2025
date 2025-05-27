@@ -14,17 +14,41 @@
       <div class="block">
         <div class="block-content">
           <img src="/home-block-counter.png" alt="Contagem regressiva" />
-          <h2>44</h2>
+          <h2>{{ daysUntilEvent }}</h2>
           <p>dias para o Impacto</p>
         </div>
       </div>
     </div>
+    <hr />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Home'
+  name: 'Home',
+  data() {
+    return {
+      daysUntilEvent: 0
+    }
+  },
+  created() {
+    this.calculateDaysUntilEvent()
+  },
+  methods: {
+    calculateDaysUntilEvent() {
+      const eventDate = new Date('2025-06-19')
+      const today = new Date()
+      
+      // Reset hours to avoid partial day calculations
+      today.setHours(0, 0, 0, 0)
+      eventDate.setHours(0, 0, 0, 0)
+      
+      const diffTime = eventDate - today
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+      
+      this.daysUntilEvent = diffDays
+    }
+  }
 }
 </script>
 
@@ -40,7 +64,7 @@ export default {
 .blocks {
   display: flex;
   justify-content: center;
-  gap: 5%;
+  gap: 15px;
   margin-top: 10px;
 }
 .block {

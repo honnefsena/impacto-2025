@@ -104,6 +104,13 @@ button:focus {
   padding: 2em;
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background-color: #E6E6E6;
+  margin: 15px 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
