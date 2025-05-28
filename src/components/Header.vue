@@ -1,6 +1,13 @@
 <template>
   <header class="header">
-    <img src="/logo-impacto-2025-light.svg" alt="Logo Impacto" class="logo" />
+    <div class="logo-container">
+      <img 
+        v-show="showLogo" 
+        src="/logo-impacto-2025-light.svg" 
+        alt="Logo Impacto" 
+        class="logo" 
+      />
+    </div>
     <div class="icons">
       <button class="icon-btn" @click="$emit('open-notifications')" aria-label="Notificações">
         <img src="/icon-notifications.svg" alt="Notificações" width="28" height="28" />
@@ -11,6 +18,28 @@
     </div>
   </header>
 </template>
+
+<script>
+export default {
+  name: 'Header',
+  data() {
+    return {
+      showLogo: false
+    }
+  },
+  mounted() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  beforeUnmount() {
+    window.removeEventListener('scroll', this.handleScroll)
+  },
+  methods: {
+    handleScroll() {
+      this.showLogo = window.scrollY > 190
+    }
+  }
+}
+</script>
 
 <style scoped>
 .header {
@@ -25,7 +54,8 @@
   z-index: 100;
 }
 .logo {
-  width: 180px;  
+  width: 180px;
+  transition: opacity 0.3s ease;
 }
 .icons {
   display: flex;
