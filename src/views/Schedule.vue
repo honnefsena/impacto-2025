@@ -1,17 +1,26 @@
 <template>
   <div class="schedule">
-    <h1>Schedule</h1>
+    <HappeningNow />
+    <hr />
+    <NextEvents />
   </div>
 </template>
 
 <script>
+import HappeningNow from '../components/HappeningNow.vue'
+import NextEvents from '../components/NextEvents.vue'
+
 export default {
-  name: 'Schedule'
+  name: 'Schedule',
+  components: {
+    HappeningNow,
+    NextEvents
+  }
 }
 </script>
 
 <style scoped>
 .schedule {
-  padding: 20px;
+  padding: 20px 15px;  
 }
 </style> 

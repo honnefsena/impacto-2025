@@ -2,7 +2,7 @@
   <header class="header">
     <div class="logo-container">
       <img 
-        v-show="showLogo" 
+        v-show="shouldShowLogo" 
         src="/logo-impacto-2025-light.svg" 
         alt="Logo Impacto" 
         class="logo" 
@@ -24,11 +24,24 @@ export default {
   name: 'Header',
   data() {
     return {
-      showLogo: false
+      showLogo: this.$route.name !== 'Home'
+    }
+  },
+  computed: {
+    shouldShowLogo() {
+      // Se não estiver na Home, sempre mostra a logo
+      if (this.$route.name !== 'Home') {
+        return true
+      }
+      // Se estiver na Home, usa a lógica de scroll
+      return this.showLogo
     }
   },
   mounted() {
-    window.addEventListener('scroll', this.handleScroll)
+    // Só adiciona o listener de scroll se estiver na Home
+    if (this.$route.name === 'Home') {
+      window.addEventListener('scroll', this.handleScroll)
+    }
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll)
