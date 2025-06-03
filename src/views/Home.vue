@@ -31,6 +31,48 @@
     <div class="banner-happening-now">
       <img src="/guest-ze_bruno.png" alt="Banner Acontecendo no Impacto" />
     </div>
+    <div class="happening-info">
+      <Badge 
+        content="CELEBRAÇÃO"
+        bg-color="#E94D24"
+        size="lg"
+      />
+      <div class="happening-info-content">
+        <div class="happening-local">
+          <img src="/icon-location.svg" alt="Local" />
+          ESPAÇO
+        </div>
+        <div class="happening-time">
+          <img src="/icon-clock.svg" alt="22h00" />
+          22h00
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="next-events">
+      <h3>Próximos eventos</h3>
+      <div class="now">
+        <span class=""></span>
+        <div class="agora">QUINTA</div>
+      </div>
+    </div>
+    <div class="events-grid">
+      <div class="grid-row">
+        <Badge content="Geração Fiel" size="lg" bgColor="#8D6FAF" textColor="#FFF" />
+        <Badge content="Espaço 1" size="lg" bgColor="#989898" textColor="#FFF" />
+        <Badge content="10:00" size="lg" bgColor="#989898" textColor="#FFF" />
+      </div>
+      <div class="grid-row">
+        <Badge content="Geração Fiel" size="lg" bgColor="#e8e2ef" textColor="#8D6FAF" />
+        <Badge content="Espaço 2" size="lg" bgColor="#F2F2F2" textColor="#989898" />
+        <Badge content="10:00" size="lg" bgColor="#F2F2F2" textColor="#989898" />
+      </div>
+      <div class="grid-row">
+        <Badge content="Geração Fiel" size="lg" bgColor="#e8e2ef" textColor="#8D6FAF" />
+        <Badge content="Espaço 3" size="lg" bgColor="#F2F2F2" textColor="#989898" />
+        <Badge content="10:00" size="lg" bgColor="#F2F2F2" textColor="#989898" />
+      </div>
+    </div>
     <p style="width: 100%; height: 1000px;">
       
     </p>
@@ -38,8 +80,13 @@
 </template>
 
 <script>
+import Badge from '../components/Badge.vue'
+
 export default {
   name: 'Home',
+  components: {
+    Badge
+  },
   data() {
     return {
       daysUntilEvent: 0,
@@ -191,10 +238,10 @@ export default {
   50% { opacity: 1; }
   100% { opacity: 0.3; }
 }
-.happening-now {
+.happening-now, .next-events {
   display: flex;
   justify-content: space-between;  
-  padding: 20px;  
+  padding: 15px;  
 }
 .happening-now h3 {
   font-size: 25px;
@@ -202,6 +249,7 @@ export default {
 }
 .happening-now .now {
   color:#E94D24;
+  font-weight: 700;
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -222,5 +270,40 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.happening-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+.happening-info-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.happening-info-content img {
+  width: 15px;
+  height: 15px;
+}
+
+.next-events .now {
+  color:#E94D24;
+  font-weight: 700;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.events-grid {
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.grid-row {
+  display: flex;
+  justify-content: space-between;
 }
 </style> 

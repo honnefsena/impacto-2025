@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.showLogo = window.scrollY > 190
+      this.showLogo = window.scrollY > 170
     }
   }
 }
@@ -55,7 +55,7 @@ export default {
 }
 .logo {
   width: 180px;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease-in-out;
 }
 .icons {
   display: flex;
