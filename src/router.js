@@ -4,6 +4,7 @@ import Schedule from './views/Schedule.vue'
 import Guests from './views/Guests.vue'
 import Map from './views/Map.vue'
 import Interactions from './views/Interactions.vue'
+import Details from './views/Details.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/guests', name: 'Guests', component: Guests },
   { path: '/map', name: 'Map', component: Map },
   { path: '/interactions', name: 'Interactions', component: Interactions },
+  { path: '/details/:id', name: 'Details', component: Details, props: true },
 ]
 
 const router = createRouter({
